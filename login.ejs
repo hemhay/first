@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+    <!-- <link rel="stylesheet" href="../public/style2.css"> -->
+     <style>
+       /* Login page */
+:root {
+    --primary-color: #4a4a4a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #e6b800;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: var(--primary-color);
+    background-color: white;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Dropdown Menu */
+.menu {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 1000;
+}
+.menu a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+.menu a:hover {
+    background-color: var(--secondary-color);
+}
+.menu.show {
+    display: flex;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+h1, h2 {
+    margin-top: 0;
+}
+.form-container {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+label {
+    font-weight: bold;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+}
+.cta-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+.form-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.form-footer a:hover {
+    text-decoration: underline;
+} 
+ </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="text-decoration: none; color: #4a4a4a;"> <div class="logo">Cornfield Foods</div> </a>
+        <div class="menu-icon" id="menu-toggle">☰</div>
+        <nav class="menu" id="menu">
+            <a href="index.ejs">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="form-container" id="login">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" name="login-email" required>
+    
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="login-password" required>
+    
+            <button type="submit" class="cta-button">Log In</button>
+        </form>
+        <div class="form-footer">
+            <p>Don't have an account? <a href="/Signup">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu visibility
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        });
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornfield Foods and Beverages</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <style>
+      :root {
+    --primary-color: #4a4a4a;
+    --secondary-color: #f0f0f0;
+    --accent-color: #e6b800;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: var(--primary-color);
+    background-color: white;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Dropdown Menu */
+.menu {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    padding: 1rem;
+    z-index: 1000;
+}
+.menu a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+.menu a:hover {
+    background-color: var(--secondary-color);
+}
+.menu.show {
+    display: flex;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+#card {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+h1, h2 {
+    margin-top: 0;
+}
+.cta-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+/* #product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 5rem;
+} */
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.product-image {
+    width: 100%;
+    height: 200px;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.search-bar {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 25px;
+}
+.recipe-share {
+    background: url(recipie.webp);
+    color: rgb(73, 72, 72);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+/* Global styles for larger screens */
+.container {
+    max-width: 1200px;
+    padding: 1rem;
+}
+
+#product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    
+}
+
+.Search{
+    width: max-content;
+}
+
+/* Media Queries for responsiveness */
+
+/* Tablet and below (768px and under) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .menu-icon {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    
+    .menu {
+        width: 100%;
+        right: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    #card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .product-image {
+        height: 150px; /* Reduce image height on smaller screens */
+    }
+
+    .cta-button {
+        padding: 0.5rem;
+    }
+}
+
+/* Mobile devices (480px and below) */
+@media only screen and (max-width: 480px) {
+    body, html {
+        font-size: 14px;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    .menu-icon {
+        font-size: 0.8rem;
+    }
+    
+    .container {
+        padding: 0.3rem;
+    }
+
+    
+
+    #product-grid {
+        grid-template-columns: 1fr; /* One column for small mobile screens */
+    }
+
+    .product-card {
+        padding: 0.65rem;
+    }
+
+    .cta-button {
+        padding: 0.35rem;
+        font-size: 0.775rem;
+    }
+
+    #card {
+        padding: 0.8rem;
+    }
+}
+
+  
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Cornfield Foods</div>
+
+        <div class="card"></div>
+        <!-- <h1>Want a personalized experience and access to exclusive content?</h1> -->
+        <a href="Signup.ejs" class="cta-button" target="_blank">Sign-up today</a>
+        </div>
+
+        <div class="menu-icon" id="menu-toggle">☰</div>
+        <nav class="menu" id="menu">
+            <a href="test.html">Home</a>
+            <a href="#product-grid" >Products</a>
+            <a href="#card">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="Search">
+        <h2>Our Products</h2>
+        <input type="text" class="search-bar" placeholder="Search our products...">
+        </div>
+
+        <div id="product-grid">
+            <div class="product-card">
+                <div class="product-image"><img src="Images/corn.webp" width="355px" height="200px"></div>
+                <h3>Golden Corn Chowder</h3>
+                <p>A creamy soup made with our sweet corn.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images/drink.webp" width="355px" height="200px"></div>
+                <h3>Cornfield Lemonade</h3>
+                <p>Refreshing lemonade with a hint of sweet corn.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="Images/cornbred.webp" width="355px" height="200px"></div>
+                <h3>Cornbread Mix</h3>
+                <p>Make delicious, fluffy cornbread at home.</p>
+            </div>
+        </div>
+
+        <div class="recipe-share">
+            <h2>Share Your Recipe for Wonder</h2>
+            <p>We'll share it with the world!</p>
+            <a href="#" class="cta-button" target="#">Submit Recipe</a>
+        </div>
+
+        <div id="card">
+            <h2>Our Planet, People and Communities Matter</h2>
+            <p>We aim to create a more sustainable and better shared future. To make a difference in people's lives, communities and our planet by doing business the right way. By becoming a better company, we can help build a stronger, more sustainable future for us all.</p>
+            <a href="#" class="cta-button">Read more</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Toggle menu visibility
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
